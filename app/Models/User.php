@@ -80,7 +80,7 @@ class User extends Authenticatable
 
         $sortColumns = Str::of($sortColumns)->split('/[\s,]+/')->toArray();
 
-        if(collect($sortColumns)->contains("name") &&  collect(['ASC', 'DESC'])->contains($sort)){
+        if(collect($sortColumns)->contains($sortBy) &&  collect(['ASC', 'DESC'])->contains($sort)){
             $users->orderBy("users.{$sortBy}", $sort);
         }
 
